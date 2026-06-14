@@ -45,12 +45,6 @@ Built for people who write modules on the go, on a tablet, or simply without acc
 2. Install it (allow installation from unknown sources)
 3. Grant root access when prompted for root features
 
-## Screenshots
-
-| Metadata | Preview | Module Manager |
-|:---:|:---:|:---:|
-| _screenshot_1_ | _screenshot_2_ | _screenshot_3_ |
-
 ## Building from source
 
 ```bash
