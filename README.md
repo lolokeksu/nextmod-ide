@@ -20,6 +20,15 @@
 
 Built for people who write modules on the go, on a tablet, or simply without access to a PC.
 
+## Screenshots
+
+<div align="center">
+
+| Metadata | Preview | Module Manager | Browser |
+|----------|---------|----------------|---------|
+| <img src="https://github.com/user-attachments/assets/c9ab2438-6b4a-4e4b-8093-4192329bdf7c" width="180"/> | <img src="https://github.com/user-attachments/assets/b26dcbb2-3b47-4b62-9a22-45e4f081fca4" width="180"/> | <img src="https://github.com/user-attachments/assets/a0146e72-83b9-49f5-b629-032a2ec6fe9a" width="180"/> | <img src="https://github.com/user-attachments/assets/fa524708-0b00-45ec-a501-f6c68a9609ba" width="180"/> |
+</div>
+
 ## Features
 
 - **Full module builder** — `module.prop`, `customize.sh`, `service.sh`, `post-fs-data.sh`, `/system` overlays, `replace` directories, `sepolicy.rule`
