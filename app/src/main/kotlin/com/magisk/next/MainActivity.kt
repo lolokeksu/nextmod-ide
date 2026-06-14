@@ -113,7 +113,7 @@ class MainActivity : ComponentActivity() {
                 // [+] Брендовый сплеш при запуске — поверх всего
                 var showSplash by rememberSaveable { mutableStateOf(true) }
                 if (showSplash) {
-                    BrandSplashScreen(onFinished = { showSplash = false })
+                    BrandSplashScreen(onFinished = { showSplash = false }, durationMillis = 2000L)
                 }
             }
         }
