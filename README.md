@@ -63,8 +63,11 @@ Any derivative works (forks) must remain open under the same license. The name "
 
 ## Author
 
-**ExchNow** (Lolokeksu)
-[GitHub](https://github.com/lolokeksu)
+**ExchNow** [Lolokeksu](t.me/lolokeksu)
+
+[GitHub](https://github.com/lolokeksu) 
+
+[Telegram](t.me/nextmod_ide)
 
 ---
 
