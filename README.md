@@ -63,7 +63,7 @@ Any derivative works (forks) must remain open under the same license. The name "
 
 ## Author
 
-**ExchNow** [Lolokeksu](t.me/lolokeksu)
+**ExchNow** [Lolokeksu](https://t.me/lolokeksu)
 
 [GitHub](https://github.com/lolokeksu) 
 
