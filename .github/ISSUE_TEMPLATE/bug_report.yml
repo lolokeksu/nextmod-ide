@@ -1,0 +1,151 @@
+name: 🐞 Баг-репорт / Bug Report
+description: Сообщить об ошибке в работе NextMod IDE / Report a bug in NextMod IDE
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Спасибо за репорт! / Thanks for the report!
+        Заполните поля ниже как можно подробнее. Чем больше контекста — тем быстрее исправление.
+        Fill in the fields below in as much detail as possible.
+
+        ⚠️ **Перед отправкой**: убедитесь, что такой баг ещё не заведён в [списке issue](https://github.com/lolokeksu/nextmod-ide/issues).
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Проверки перед отправкой / Pre-submit checks
+      options:
+        - label: Я обновился до последней версии NXI и баг воспроизводится / I'm on the latest NXI version
+          required: true
+        - label: Я поискал среди существующих issue и дубликата нет / I searched existing issues, no duplicate
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание бага / Bug description
+      description: Что именно не работает. Кратко и по делу. / What exactly goes wrong.
+      placeholder: При нажатии на «Собрать модуль» приложение закрывается…
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения / Steps to reproduce
+      description: Последовательность действий, приводящая к багу. / Exact sequence of actions.
+      placeholder: |
+        1. Открыть проект «…»
+        2. Перейти на вкладку Редактор
+        3. Нажать «…»
+        4. Видим ошибку
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение / Expected behavior
+      description: Что должно было произойти. / What you expected to happen.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: backend
+    attributes:
+      label: Root-бэкенд / Root backend
+      description: На каком окружении воспроизводится баг. / Which root solution you use.
+      options:
+        - Magisk
+        - KernelSU
+        - KernelSU Next
+        - APatch
+        - Не уверен / Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: backend_version
+    attributes:
+      label: Версия бэкенда / Backend version
+      description: Версия Magisk / KernelSU / APatch (точная). / Exact version of your root backend.
+      placeholder: "напр. Magisk 27.0 / KernelSU 1.0.2 / APatch 10760"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Раздел приложения / Affected area
+      description: Где в NXI проявляется баг. / Which part of NXI is affected.
+      options:
+        - Редактор кода / Code editor
+        - ScriptLinter (проверки скриптов)
+        - Сборка / упаковка модуля / Module build & packaging
+        - Создание / импорт проекта / Project create & import
+        - Интерфейс / навигация / UI & navigation
+        - Локализация / перевод / Localization
+        - Splash / иконка / Splash & icon
+        - Другое / Other
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Устройство / Device
+      description: Производитель и модель. / Manufacturer and model.
+      placeholder: "напр. Realme GT Neo 5 SE (RMX3700)"
+    validations:
+      required: true
+
+  - type: input
+    id: android
+    attributes:
+      label: Версия Android / Android version
+      description: Версия Android и, если знаете, прошивки. / Android version and ROM if known.
+      placeholder: "напр. Android 14, realme UI 5.0"
+    validations:
+      required: true
+
+  - type: input
+    id: nxi_version
+    attributes:
+      label: Версия NXI / NXI version
+      description: Версия приложения (см. экран «О приложении»). / App version from the About screen.
+      placeholder: "напр. v1.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: crashlog
+    attributes:
+      label: Лог CrashHandler / CrashHandler log
+      description: |
+        Если приложение падало — приложите лог из CrashHandler.
+        If the app crashed, paste the CrashHandler log here. It will be auto-formatted.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: artifact
+    attributes:
+      label: Сгенерированный модуль / Generated module (для багов сборки и bootloop)
+      description: |
+        Если баг связан со сборкой, установкой или bootloop — приложите module.prop,
+        customize.sh и/или service.sh сгенерированного модуля (или ZIP-файл перетаскиванием).
+        For build/install/bootloop bugs, attach the generated module files.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Скриншоты / Screenshots
+      description: Перетащите изображения сюда. / Drag and drop images here.
+    validations:
+      required: false
