@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Экспорт ZIP-модулей и проектов -->
+    <external-path
+        name="magisk_modules"
+        path="MagiskModuleCreator/" />
+    <!-- [+] Автосохранение в cacheDir (MainActivity.onStop) -->
+    <cache-path
+        name="cache"
+        path="." />
+</paths>

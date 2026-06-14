@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="external" path="MagiskModuleCreator/module_creator.log" />
+        <exclude domain="external" path="MagiskModuleCreator/module_creator.log.old" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="external" path="MagiskModuleCreator/module_creator.log" />
+        <exclude domain="external" path="MagiskModuleCreator/module_creator.log.old" />
+    </device-transfer>
+</data-extraction-rules>

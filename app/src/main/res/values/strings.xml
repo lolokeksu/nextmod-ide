@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===== General ===== -->
+    <string name="app_name">NextMod IDE</string>
+
+    <!-- ===== Tabs ===== -->
+    <string name="tab_metadata">Metadata</string>
+    <string name="tab_files">Files</string>
+    <string name="tab_preview">Preview</string>
+    <string name="tab_advanced">Advanced</string>
+    <string name="tab_browser">Browser</string>
+
+    <!-- ===== Top bar ===== -->
+    <string name="action_template">Template</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_export">Export</string>
+
+    <!-- ===== Menu ===== -->
+    <string name="menu_save_project">Save project</string>
+    <string name="menu_import_module">Import module (.zip)</string>
+    <string name="menu_install_module">Install module</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_module_manager">Module manager</string>
+
+    <!-- ===== Metadata ===== -->
+    <string name="label_module_id">Module ID *</string>
+    <string name="label_version">Version *</string>
+    <string name="label_version_code">Version code (integer, e.g. 1)</string>
+    <string name="label_author">Author</string>
+    <string name="label_link">Link</string>
+    <string name="label_description">Description *</string>
+    <string name="label_changelog">Changelog</string>
+
+    <!-- ===== Files tab ===== -->
+    <string name="files_count">%d files</string>
+    <string name="files_word">files</string>
+
+    <!-- ===== Scripts ===== -->
+    <string name="script_not_added">Not added</string>
+
+    <!-- ===== Advanced tab ===== -->
+    <string name="adv_generate_updatejson">Download update.json</string>
+    <string name="adv_updatejson_desc">Magisk will check for updates via the link</string>
+    <string name="adv_updatejson_title">Auto-update (updateJson)</string>
+    <string name="adv_updatejson_url">URL to update.json</string>
+    <string name="adv_updatejson_url_hint">https://raw.githubusercontent.com/user/repo/main/update.json</string>
+    <string name="adv_updatezip_url">URL to module ZIP</string>
+    <string name="adv_updatezip_url_hint">https://github.com/user/repo/releases/download/v1.0/module.zip</string>
+
+    <!-- ===== Script linter ===== -->
+    <string name="lint_local_outside_func">«local» outside a function — crashes in mksh/ash</string>
+    <string name="lint_double_bracket">«[[ ]]» is a bashism — use «[ ]» (POSIX)</string>
+    <string name="lint_array">Arrays are not supported in busybox ash</string>
+    <string name="lint_function_keyword">«function name» keyword — use «name() {»</string>
+    <string name="lint_declare">«declare/typeset» is not available in ash</string>
+    <string name="lint_herestring">Herestring «&lt;&lt;&lt;» is a bashism — use «echo | cmd»</string>
+    <string name="lint_process_subst">Process substitution «&lt;(…)» is a bashism</string>
+    <string name="lint_replace_expansion">«${var/…}» replacement may not work in busybox ash</string>
+    <string name="lint_unquoted_rm">«rm -rf» with an unquoted variable — quote it: \"$VAR\"</string>
+    <string name="lint_write_block">Direct write to /dev/block — bootloop risk</string>
+    <string name="lint_remount_system">rw-remount of a system partition breaks the systemless approach — use the module overlay</string>
+    <string name="lint_chmod_777">chmod 777 — insecure permissions, prefer 0755/0644</string>
+    <string name="lint_source_cmd">«source» — use «.» (POSIX)</string>
+    <string name="lint_let_cmd">«let» — use «$(( ))» (POSIX)</string>
+    <string name="lint_random">«$RANDOM» is not available in ash</string>
+
+    <!-- ===== Module validation ===== -->
+    <string name="validation_error_id">Invalid module ID (only a–z, 0–9, _ . -)</string>
+    <string name="validation_error_name">Name is missing</string>
+    <string name="validation_error_version">Version is missing</string>
+    <string name="validation_fix_errors">Fix validation errors first</string>
+    <string name="validation_info_no_files">No additional files</string>
+    <string name="validation_passed">✓ All good</string>
+    <string name="validation_running">Checking…</string>
+    <string name="validation_success_files">%d file(s) added</string>
+    <string name="validation_success_id">Module ID is valid</string>
+    <string name="validation_warning_customize_empty">customize.sh is empty</string>
+    <string name="validation_warning_description">Description is missing (recommended)</string>
+    <string name="validation_warning_no_shebang">No shebang in customize.sh</string>
+    <string name="validation_warnings">⚠ Warnings</string>
+
+    <!-- ===== Export validation ===== -->
+    <string name="vex_error_empty_module">Module is empty — no files, scripts or replace rules</string>
+    <string name="vex_error_id_chars">ID contains invalid characters (only a-z, 0-9, dot, hyphen, _)</string>
+    <string name="vex_error_id_missing">Module ID is not set</string>
+    <string name="vex_error_name_missing">Module name is not set</string>
+    <string name="vex_error_version_missing">Version is not set</string>
+    <string name="vex_error_versioncode">versionCode must be an integer</string>
+    <string name="vex_warn_author">Author is not set</string>
+    <string name="vex_warn_description">Description is not set</string>
+    <string name="vex_warn_file_path">File «%1$s» is outside the standard overlay path (system/…)</string>
+    <string name="vex_warn_minmagisk">minMagisk is not a number — the field will be ignored</string>
+    <string name="vex_warn_no_shebang">%1$s has no shebang (#!/system/bin/sh)</string>
+    <string name="vex_warn_updatejson_http">update.json URL should start with http(s)://</string>
+    <string name="vex_warn_updatejson_url">Auto-update enabled but update.json URL is empty</string>
+    <string name="vex_warn_updatezip_url">Auto-update: module ZIP URL is empty</string>
+
+    <!-- ===== Dialogs ===== -->
+    <string name="dlg_clear_all_message">Are you sure you want to delete all %d files?</string>
+    <string name="dlg_clear_all_title">Delete all files?</string>
+    <string name="dlg_clear_cancel">Cancel</string>
+    <string name="dlg_clear_confirm">Delete</string>
+    <string name="dlg_delete_cancel">Cancel</string>
+    <string name="dlg_delete_confirm">Delete</string>
+    <string name="dlg_delete_file_message">Are you sure you want to delete \"%s\"?</string>
+    <string name="dlg_delete_file_title">Delete file?</string>
+    <string name="dlg_exit_message">Do you want to save the current project before exiting?</string>
+    <string name="dlg_exit_no">No</string>
+    <string name="dlg_exit_title">Save project?</string>
+    <string name="dlg_exit_yes">Yes</string>
+    <string name="dlg_export_build">Build</string>
+    <string name="dlg_export_cancel">Cancel</string>
+    <string name="dlg_export_check_title">Check the module</string>
+    <string name="dlg_export_errors">Errors:</string>
+    <string name="dlg_export_fix_errors">Fix errors</string>
+    <string name="dlg_export_ready_title">Ready to build</string>
+    <string name="dlg_export_structure">Archive structure (%1$d files, %2$s):</string>
+    <string name="dlg_export_warnings">Warnings:</string>
+    <string name="dlg_install_question">Install via Magisk / KernelSU / APatch?</string>
+    <string name="dlg_install_title">Module built</string>
+    <string name="dlg_preexport_check_title">Check module</string>
+    <string name="dlg_preexport_ready_title">Ready to build</string>
+    <string name="dlg_remove_module_message">%s\n\nThe module will be marked for removal and deleted after reboot.</string>
+    <string name="dlg_remove_module_title">Remove module?</string>
+    <string name="dlg_reset_cancel">Cancel</string>
+    <string name="dlg_reset_confirm">Reset</string>
+    <string name="dlg_reset_message">All data, scripts and files will be deleted. This action cannot be undone.</string>
+    <string name="dlg_reset_title">Reset module?</string>
+    <string name="dlg_template_cancel">Cancel</string>
+    <string name="dlg_template_debloater">Debloater (hide system apps)</string>
+    <string name="dlg_template_empty">Empty module</string>
+    <string name="dlg_template_hosts_blocker">Hosts blocker (replace hosts file)</string>
+    <string name="dlg_template_kernel_tweaks">Kernel tweaks</string>
+    <string name="dlg_template_title">Choose template</string>
+
+    <!-- ===== File browser ===== -->
+    <string name="fb_close">Close</string>
+    <string name="fb_deselect_all">Deselect all</string>
+    <string name="fb_direction_section">Direction</string>
+    <string name="fb_empty_folder">Folder is empty</string>
+    <string name="fb_hidden_types">Hidden types</string>
+    <string name="fb_hidden_types_title">Hidden file types</string>
+    <string name="fb_no_access">No access</string>
+    <string name="fb_select_all">Select all</string>
+    <string name="fb_sort_asc">Ascending ↑</string>
+    <string name="fb_sort_by_date">By date</string>
+    <string name="fb_sort_by_name">By name</string>
+    <string name="fb_sort_desc">Descending ↓</string>
+    <string name="fb_sort_section">Sorting</string>
+
+    <!-- ===== Relative time ===== -->
+    <string name="time_just_now">just now</string>
+    <string name="time_min_ago">%1$dm ago</string>
+    <string name="time_hours_ago">%1$dh ago</string>
+    <string name="time_yesterday">yesterday</string>
+    <string name="time_days_ago">%1$dd ago</string>
+    <string name="time_weeks_ago">%1$dw ago</string>
+
+    <!-- ===== Module Manager ===== -->
+    <string name="module_disabled">Disabled</string>
+    <string name="module_enabled">Enabled</string>
+    <string name="module_marked_for_removal">Will be removed</string>
+    <string name="module_marked_removal">Will be removed</string>
+
+    <!-- ===== Settings ===== -->
+    <string name="settings_about">About</string>
+    <string name="settings_about_content">A full-fledged IDE for building Magisk, KernelSU and APatch modules right on your phone. No PC needed.</string>
+    <string name="settings_auto_save_exit">Auto-save on exit</string>
+    <string name="settings_backup">Backup settings</string>
+    <string name="settings_browse_folder">Browse</string>
+    <string name="settings_cancel">Cancel</string>
+    <string name="settings_category_about">About</string>
+    <string name="settings_category_browser">File Browser</string>
+    <string name="settings_category_general">General</string>
+    <string name="settings_category_logging">Logging</string>
+    <string name="settings_category_root">Root</string>
+    <string name="settings_category_saving">Saving</string>
+    <string name="settings_category_theme">Theme</string>
+    <string name="settings_change">Change</string>
+    <string name="settings_clear_logs">Clear logs</string>
+    <string name="settings_export">Export</string>
+    <string name="settings_export_error">Error exporting settings</string>
+    <string name="settings_export_success">Settings exported</string>
+    <string name="settings_import">Import</string>
+    <string name="settings_import_error">Error importing settings</string>
+    <string name="settings_import_success">Settings imported</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_log_level">Logging level</string>
+    <string name="settings_log_level_all">All (detailed)</string>
+    <string name="settings_log_level_errors">Errors only</string>
+    <string name="settings_log_level_warnings">Errors and warnings</string>
+    <string name="settings_logs">Logs</string>
+    <string name="settings_logs_cleared">Logs cleared</string>
+    <string name="settings_notify_export">Notify after export</string>
+    <string name="settings_path_dialog_title">Module path</string>
+    <string name="settings_path_label">Relative path</string>
+    <string name="settings_reset">Reset</string>
+    <string name="settings_root_checking">Checking…</string>
+    <string name="settings_root_enable">Enable root access</string>
+    <string name="settings_root_enable_desc">Direct module installation, module manager, system browser</string>
+    <string name="settings_root_features_title">Root capabilities</string>
+    <string name="settings_root_manager_label">Manager: %1$s</string>
+    <string name="settings_root_request">Request access</string>
+    <string name="settings_root_status_denied">Denied</string>
+    <string name="settings_root_status_granted">Granted</string>
+    <string name="settings_root_status_label">Status: %1$s</string>
+    <string name="settings_root_status_unavailable">Unavailable</string>
+    <string name="settings_root_warning">Root access increases security risks. Use only with trusted modules. The app is not responsible for consequences.</string>
+    <string name="settings_save">Save</string>
+    <string name="settings_save_path">Save path</string>
+    <string name="settings_show_hidden_files">Show hidden files</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_version_label">Version: %1$s</string>
+
+    <!-- ===== Theme ===== -->
+    <string name="theme_system">System default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_amoled">AMOLED</string>
+
+    <!-- ===== Crash dialog ===== -->
+    <string name="crash_dialog_title">App crashed last time</string>
+    <string name="crash_dialog_message">A crash report was saved. You can copy it and attach it to a bug report.</string>
+    <string name="crash_dialog_copy">Copy log</string>
+    <string name="crash_dialog_close">Close</string>
+    <string name="crash_dialog_copied">Crash log copied to clipboard</string>
+
+    <!-- ===== Buttons ===== -->
+    <string name="btn_add_file">Add file</string>
+    <string name="btn_build">Build</string>
+    <string name="btn_clear_all">Clear all files</string>
+    <string name="btn_clear_label">Clear</string>
+    <string name="btn_create_label">Create</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_download_prop">Download module.prop</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_fill_default">Fill default</string>
+    <string name="btn_fix_errors">Fix errors first</string>
+    <string name="btn_hide_label">Hide</string>
+    <string name="btn_install">Install</string>
+    <string name="btn_install_later">Later</string>
+    <string name="btn_install_root">⚡ Root install</string>
+    <string name="btn_request_root">Request access</string>
+    <string name="btn_save_changes">Save changes</string>
+    <string name="btn_upload_file">Upload file</string>
+    <string name="btn_upload_label">Upload</string>
+    <string name="btn_validate">Validate module</string>
+
+    <!-- ===== Toasts ===== -->
+    <string name="toast_build_error">Build error</string>
+    <string name="toast_file_manager_unavailable">Could not open file manager</string>
+    <string name="toast_file_not_found">File not found</string>
+    <string name="toast_file_read_error">Failed to read file</string>
+    <string name="toast_folder_open_error">Could not open the folder</string>
+    <string name="toast_imported">Module imported</string>
+    <string name="toast_install_error">Install error: %s</string>
+    <string name="toast_installing">Installing module…</string>
+    <string name="toast_load_error">Error loading</string>
+    <string name="toast_module_installed">✓ Installed via %s. Reboot device.</string>
+    <string name="toast_module_prop_saved">module.prop saved</string>
+    <string name="toast_module_saved">Module saved</string>
+    <string name="toast_no_installer">No installer app found. Install Magisk / KernelSU / APatch.</string>
+    <string name="toast_path_read_error">Could not read path</string>
+    <string name="toast_permission_manual">Your device does not support this request. Enable the permission manually in _na settings.</string>
+    <string name="toast_project_load_error">Failed to load project: %1$s</string>
+    <string name="toast_project_loaded">Project loaded</string>
+    <string name="toast_project_opened">Project opened</string>
+    <string name="toast_project_save_error">Failed to save project: %1$s</string>
+    <string name="toast_project_saved">Project saved</string>
+    <string name="toast_prop_save_error">Failed to save module.prop: %1$s</string>
+    <string name="toast_save_error">Error saving</string>
+    <string name="toast_updatejson_saved">update.json saved to MagiskModuleCreator/</string>
+
+    <!-- ===== Labels & fields ===== -->
+    <string name="label_content">Content</string>
+    <string name="label_custom">Custom</string>
+    <string name="label_file_name">File name *</string>
+    <string name="label_file_type">File type</string>
+    <string name="label_min_magisk">minMagisk (e.g. 20400 = Magisk 20.4+)</string>
+    <string name="label_name">Name *</string>
+    <string name="label_optional">Optional</string>
+    <string name="label_permissions">Permissions</string>
+    <string name="label_replace">replace (directories to replace)</string>
+    <string name="label_required">Required</string>
+    <string name="label_sepolicy">sepolicy.rule (SELinux rules)</string>
+    <string name="label_symlink_recommended">Symlink (recommended)</string>
+
+    <!-- ===== Hints ===== -->
+    <string name="hint_add_files">Add files that Magisk will mount over /system — e.g. hosts, lib, prop</string>
+    <string name="hint_add_files_how">Use "Upload" for files from device or "Create" to write manually</string>
+    <string name="hint_enable_root">Enable root in settings and grant access to manage modules.</string>
+    <string name="hint_replace">Each path on a new line, e.g. /system/app/YouTube</string>
+    <string name="hint_sepolicy">One rule per line</string>
+
+    <!-- ===== Permissions ===== -->
+    <string name="permission_executable">Executable</string>
+    <string name="permission_owner_only">Owner only</string>
+    <string name="permission_read_write">Read/write owner</string>
+    <string name="permission_regular">Regular file</string>
+
+    <!-- ===== File types ===== -->
+    <string name="file_type_binary">Binary file</string>
+    <string name="file_type_config">Configuration</string>
+    <string name="file_type_script">Script (.sh)</string>
+    <string name="file_type_text">Text file</string>
+
+    <!-- ===== Section titles ===== -->
+    <string name="section_overlay_files">Overlay files</string>
+    <string name="section_scripts">Scripts</string>
+    <string name="title_add_file">Add file</string>
+    <string name="title_file_structure">Module structure</string>
+    <string name="title_module_prop">module.prop</string>
+    <string name="title_module_structure">Module structure</string>
+    <string name="title_options">Module options</string>
+    <string name="title_summary">Module summary</string>
+    <string name="title_update_binary">update-binary</string>
+    <string name="title_validation">Module validation</string>
+
+    <!-- ===== Module summary ===== -->
+    <string name="summary_files">Files</string>
+    <string name="summary_scripts">Scripts</string>
+    <string name="summary_size">Size</string>
+    <string name="summary_version">Version</string>
+
+    <!-- ===== Root features ===== -->
+    <string name="root_feature_browser">📁 System browser (/system, /vendor, /proc)</string>
+    <string name="root_feature_conflicts">🔍 Conflict auto-check before install</string>
+    <string name="root_feature_direct_install">⚡ Direct module install without Intent</string>
+    <string name="root_feature_manager">📋 Installed modules manager</string>
+    <string name="root_feature_toggle">🔒 Enable / Disable / Remove modules</string>
+
+    <!-- ===== Empty states ===== -->
+    <string name="no_files_added">No overlay files</string>
+    <string name="no_modules_installed">No installed modules</string>
+    <string name="no_root_access">No root access</string>
+
+    <!-- ===== Misc ===== -->
+    <string name="action_more">More</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_refresh">Refresh</string>
+    <string name="cd_root_status">Root status</string>
+    <string name="collapse_script">Collapse</string>
+    <string name="collapse_section">Collapse</string>
+    <string name="desc_skip_mount">Do not mount module files over /system</string>
+    <string name="err_open_file">Could not open file</string>
+    <string name="err_open_file_write">Could not open file for writing</string>
+    <string name="expand_script">Expand</string>
+    <string name="expand_section">Expand</string>
+    <string name="export_progress_message">Please wait</string>
+    <string name="export_progress_title">Building module…</string>
+    <string name="menu_about">About</string>
+    <string name="menu_open_folder">Open modules folder</string>
+    <string name="menu_open_project">Open project</string>
+    <string name="menu_recent_projects">Recent projects</string>
+    <string name="option_skip_mount">Skip mount</string>
+    <string name="result_checks">Result: %1$d/%2$d checks</string>
+    <string name="screen_module_manager">Module manager</string>
+    <string name="snack_files_added">Added %1$d file(s)</string>
+    <string name="using_symlink">Symlink to Magisk\'s update-binary is used.</string>
+    <string name="validating">In progress…</string>
+    <string name="about_author">by ExchNow (Lolokeksu)</string>
+
+</resources>

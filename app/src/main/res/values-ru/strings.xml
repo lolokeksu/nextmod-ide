@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===== Общее ===== -->
+    <string name="app_name">NextMod IDE</string>
+
+    <!-- ===== Вкладки ===== -->
+    <string name="tab_metadata">Метаданные</string>
+    <string name="tab_files">Файлы</string>
+    <string name="tab_preview">Превью</string>
+    <string name="tab_advanced">Доп.</string>
+    <string name="tab_browser">Обзор</string>
+
+    <!-- ===== Верхняя панель ===== -->
+    <string name="action_template">Шаблон</string>
+    <string name="action_reset">Сбросить</string>
+    <string name="action_export">Экспорт</string>
+
+    <!-- ===== Меню ===== -->
+    <string name="menu_save_project">Сохранить проект</string>
+    <string name="menu_import_module">Импортировать модуль (.zip)</string>
+    <string name="menu_install_module">Установить модуль</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_module_manager">Менеджер модулей</string>
+
+    <!-- ===== Метаданные ===== -->
+    <string name="label_module_id">ID модуля *</string>
+    <string name="label_version">Версия *</string>
+    <string name="label_version_code">Код версии (целое число, напр. 1)</string>
+    <string name="label_author">Автор</string>
+    <string name="label_link">Ссылка</string>
+    <string name="label_description">Описание *</string>
+    <string name="label_changelog">Список изменений</string>
+
+    <!-- ===== Файлы — вкладка ===== -->
+    <string name="files_count">%d файлов</string>
+    <string name="files_word">файлов</string>
+
+    <!-- ===== Скрипты ===== -->
+    <string name="script_not_added">Не добавлен</string>
+
+    <!-- ===== Дополнительно ===== -->
+    <string name="adv_generate_updatejson">Скачать update.json</string>
+    <string name="adv_updatejson_desc">Magisk будет проверять обновления по ссылке</string>
+    <string name="adv_updatejson_title">Автообновление (updateJson)</string>
+    <string name="adv_updatejson_url">URL до update.json</string>
+    <string name="adv_updatejson_url_hint">https://raw.githubusercontent.com/user/repo/main/update.json</string>
+    <string name="adv_updatezip_url">URL до ZIP модуля</string>
+    <string name="adv_updatezip_url_hint">https://github.com/user/repo/releases/download/v1.0/module.zip</string>
+
+    <!-- ===== Линтер скриптов ===== -->
+    <string name="lint_local_outside_func">«local» вне функции — падение в mksh/ash</string>
+    <string name="lint_double_bracket">«[[ ]]» — башизм, используйте «[ ]» (POSIX)</string>
+    <string name="lint_array">Массивы не поддерживаются в busybox ash</string>
+    <string name="lint_function_keyword">Ключевое слово «function» — используйте «имя() {»</string>
+    <string name="lint_declare">«declare/typeset» недоступны в ash</string>
+    <string name="lint_herestring">Herestring «&lt;&lt;&lt;» — башизм, используйте «echo | cmd»</string>
+    <string name="lint_process_subst">Подстановка процесса «&lt;(…)» — башизм</string>
+    <string name="lint_replace_expansion">Замена «${var/…}» может не работать в busybox ash</string>
+    <string name="lint_unquoted_rm">«rm -rf» с переменной без кавычек — экранируйте: \"$VAR\"</string>
+    <string name="lint_write_block">Прямая запись в /dev/block — риск бутлупа</string>
+    <string name="lint_remount_system">rw-remount системного раздела ломает systemless-подход — используйте оверлей модуля</string>
+    <string name="lint_chmod_777">chmod 777 — небезопасные права, лучше 0755/0644</string>
+    <string name="lint_source_cmd">«source» — используйте «.» (POSIX)</string>
+    <string name="lint_let_cmd">«let» — используйте «$(( ))» (POSIX)</string>
+    <string name="lint_random">«$RANDOM» недоступен в ash</string>
+
+    <!-- ===== Валидация модуля ===== -->
+    <string name="validation_error_id">Некорректный ID модуля (только a–z, 0–9, _ . -)</string>
+    <string name="validation_error_name">Название не указано</string>
+    <string name="validation_error_version">Версия не указана</string>
+    <string name="validation_fix_errors">Сначала исправьте ошибки валидации</string>
+    <string name="validation_info_no_files">Нет дополнительных файлов</string>
+    <string name="validation_passed">✓ Всё ок</string>
+    <string name="validation_running">Проверка…</string>
+    <string name="validation_success_files">Добавлено %d файл(ов)</string>
+    <string name="validation_success_id">ID модуля валиден</string>
+    <string name="validation_warning_customize_empty">customize.sh пуст</string>
+    <string name="validation_warning_description">Описание не указано (рекомендуется)</string>
+    <string name="validation_warning_no_shebang">Нет shebang в customize.sh</string>
+    <string name="validation_warnings">⚠ Есть замечания</string>
+
+    <!-- ===== Валидация экспорта (ModuleBuilder) ===== -->
+    <string name="vex_error_empty_module">Модуль пустой — нет файлов, скриптов или replace-правил</string>
+    <string name="vex_error_id_chars">ID содержит недопустимые символы (только a-z, 0-9, точка, дефис, _)</string>
+    <string name="vex_error_id_missing">ID модуля не указан</string>
+    <string name="vex_error_name_missing">Название модуля не указано</string>
+    <string name="vex_error_version_missing">Версия не указана</string>
+    <string name="vex_error_versioncode">versionCode должен быть целым числом</string>
+    <string name="vex_warn_author">Автор не указан</string>
+    <string name="vex_warn_description">Описание не указано</string>
+    <string name="vex_warn_file_path">Файл «%1$s» вне стандартного пути оверлея (system/…)</string>
+    <string name="vex_warn_minmagisk">minMagisk не число — поле будет проигнорировано</string>
+    <string name="vex_warn_no_shebang">%1$s без shebang (#!/system/bin/sh)</string>
+    <string name="vex_warn_updatejson_http">URL update.json должен начинаться с http(s)://</string>
+    <string name="vex_warn_updatejson_url">Автообновление включено, но URL update.json пуст</string>
+    <string name="vex_warn_updatezip_url">Автообновление: URL ZIP модуля пуст</string>
+
+    <!-- ===== Диалоги ===== -->
+    <string name="dlg_clear_all_message">Вы уверены, что хотите удалить все %d файлов?</string>
+    <string name="dlg_clear_all_title">Удалить все файлы?</string>
+    <string name="dlg_clear_cancel">Отмена</string>
+    <string name="dlg_clear_confirm">Удалить</string>
+    <string name="dlg_delete_cancel">Отмена</string>
+    <string name="dlg_delete_confirm">Удалить</string>
+    <string name="dlg_delete_file_message">Вы действительно хотите удалить файл «%s»?</string>
+    <string name="dlg_delete_file_title">Удалить файл?</string>
+    <string name="dlg_exit_message">Хотите сохранить текущий проект перед выходом?</string>
+    <string name="dlg_exit_no">Нет</string>
+    <string name="dlg_exit_title">Сохранить проект?</string>
+    <string name="dlg_exit_yes">Да</string>
+    <string name="dlg_export_build">Собрать</string>
+    <string name="dlg_export_cancel">Отмена</string>
+    <string name="dlg_export_check_title">Проверьте модуль</string>
+    <string name="dlg_export_errors">Ошибки:</string>
+    <string name="dlg_export_fix_errors">Исправьте ошибки</string>
+    <string name="dlg_export_ready_title">Готов к сборке</string>
+    <string name="dlg_export_structure">Структура архива (%1$d файлов, %2$s):</string>
+    <string name="dlg_export_warnings">Предупреждения:</string>
+    <string name="dlg_install_question">Установить через Magisk / KernelSU / APatch?</string>
+    <string name="dlg_install_title">Модуль собран</string>
+    <string name="dlg_preexport_check_title">Проверьте модуль</string>
+    <string name="dlg_preexport_ready_title">Готов к сборке</string>
+    <string name="dlg_remove_module_message">%s\n\nМодуль будет помечен для удаления и исчезнет после перезагрузки.</string>
+    <string name="dlg_remove_module_title">Удалить модуль?</string>
+    <string name="dlg_reset_cancel">Отмена</string>
+    <string name="dlg_reset_confirm">Сбросить</string>
+    <string name="dlg_reset_message">Все данные, скрипты и файлы будут удалены. Это действие нельзя отменить.</string>
+    <string name="dlg_reset_title">Сбросить модуль?</string>
+    <string name="dlg_template_cancel">Отмена</string>
+    <string name="dlg_template_debloater">Debloater (скрытие системных приложений)</string>
+    <string name="dlg_template_empty">Пустой модуль</string>
+    <string name="dlg_template_hosts_blocker">Hosts‑блокировщик (замена hosts)</string>
+    <string name="dlg_template_kernel_tweaks">Kernel Tweaks (настройки ядра)</string>
+    <string name="dlg_template_title">Выберите шаблон</string>
+
+    <!-- ===== Файловый браузер ===== -->
+    <string name="fb_close">Закрыть</string>
+    <string name="fb_deselect_all">Отменить всё</string>
+    <string name="fb_direction_section">Направление</string>
+    <string name="fb_empty_folder">Папка пуста</string>
+    <string name="fb_hidden_types">Скрытые типы</string>
+    <string name="fb_hidden_types_title">Скрываемые типы файлов</string>
+    <string name="fb_no_access">Нет доступа</string>
+    <string name="fb_select_all">Выбрать всё</string>
+    <string name="fb_sort_asc">По возрастанию ↑</string>
+    <string name="fb_sort_by_date">По дате</string>
+    <string name="fb_sort_by_name">По имени</string>
+    <string name="fb_sort_desc">По убыванию ↓</string>
+    <string name="fb_sort_section">Сортировка</string>
+
+    <!-- ===== Относительное время ===== -->
+    <string name="time_just_now">только что</string>
+    <string name="time_min_ago">%1$dмин назад</string>
+    <string name="time_hours_ago">%1$dч назад</string>
+    <string name="time_yesterday">вчера</string>
+    <string name="time_days_ago">%1$dд назад</string>
+    <string name="time_weeks_ago">%1$dнед назад</string>
+
+    <!-- ===== Менеджер модулей ===== -->
+    <string name="module_disabled">Отключён</string>
+    <string name="module_enabled">Включён</string>
+    <string name="module_marked_for_removal">Будет удалён</string>
+    <string name="module_marked_removal">Будет удалён</string>
+
+    <!-- ===== Настройки ===== -->
+    <string name="settings_about">О приложении</string>
+    <string name="settings_auto_save_exit">Автосохранение при выходе</string>
+    <string name="settings_backup">Резервная копия настроек</string>
+    <string name="settings_browse_folder">Обзор</string>
+    <string name="settings_cancel">Отмена</string>
+    <string name="settings_category_about">О приложении</string>
+    <string name="settings_category_browser">Файловый браузер</string>
+    <string name="settings_category_general">Общие</string>
+    <string name="settings_category_logging">Логирование</string>
+    <string name="settings_category_root">Root</string>
+    <string name="settings_category_saving">Сохранение</string>
+    <string name="settings_category_theme">Оформление</string>
+    <string name="settings_change">Изменить</string>
+    <string name="settings_clear_logs">Очистить логи</string>
+    <string name="settings_export">Экспорт</string>
+    <string name="settings_export_error">Ошибка экспорта настроек</string>
+    <string name="settings_export_success">Настройки экспортированы</string>
+    <string name="settings_import">Импорт</string>
+    <string name="settings_import_error">Ошибка импорта настроек</string>
+    <string name="settings_import_success">Настройки импортированы</string>
+    <string name="settings_language">Язык интерфейса</string>
+    <string name="settings_log_level">Уровень логирования</string>
+    <string name="settings_log_level_all">Всё (детально)</string>
+    <string name="settings_log_level_errors">Только ошибки</string>
+    <string name="settings_log_level_warnings">Ошибки и предупреждения</string>
+    <string name="settings_logs">Логи приложения</string>
+    <string name="settings_logs_cleared">Логи очищены</string>
+    <string name="settings_notify_export">Уведомление после экспорта</string>
+    <string name="settings_path_dialog_title">Путь для модулей</string>
+    <string name="settings_path_label">Относительный путь</string>
+    <string name="settings_reset">Сбросить</string>
+    <string name="settings_root_checking">Проверка…</string>
+    <string name="settings_root_enable">Включить root-доступ</string>
+    <string name="settings_root_enable_desc">Прямая установка модулей, менеджер модулей, системный браузер</string>
+    <string name="settings_root_features_title">Возможности с root</string>
+    <string name="settings_root_manager_label">Менеджер: %1$s</string>
+    <string name="settings_root_request">Запросить доступ</string>
+    <string name="settings_root_status_denied">Отклонён</string>
+    <string name="settings_root_status_granted">Предоставлен</string>
+    <string name="settings_root_status_label">Статус: %1$s</string>
+    <string name="settings_root_status_unavailable">Недоступен</string>
+    <string name="settings_root_warning">Root-доступ повышает риски безопасности. Используйте только с проверенными модулями. Приложение не несёт ответственности за последствия.</string>
+    <string name="settings_save">Сохранить</string>
+    <string name="settings_save_path">Путь сохранения модулей</string>
+    <string name="settings_show_hidden_files">Показывать скрытые файлы</string>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_version_label">Версия: %1$s</string>
+
+    <!-- ===== Оформление ===== -->
+    <string name="theme_system">Системная</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_amoled">AMOLED</string>
+
+    <!-- ===== Диалог сбоя ===== -->
+    <string name="crash_dialog_title">Приложение аварийно завершилось</string>
+    <string name="crash_dialog_message">Сохранён отчёт о сбое. Вы можете скопировать его и приложить к сообщению об ошибке.</string>
+    <string name="crash_dialog_copy">Скопировать лог</string>
+    <string name="crash_dialog_close">Закрыть</string>
+    <string name="crash_dialog_copied">Лог сбоя скопирован в буфер обмена</string>
+
+    <!-- ===== Кнопки ===== -->
+    <string name="btn_add_file">Добавить файл</string>
+    <string name="btn_build">Собрать</string>
+    <string name="btn_clear_all">Очистить все файлы</string>
+    <string name="btn_clear_label">Очистить</string>
+    <string name="btn_create_label">Создать</string>
+    <string name="btn_delete">Удалить</string>
+    <string name="btn_download_prop">Скачать module.prop</string>
+    <string name="btn_edit">Редактировать</string>
+    <string name="btn_fill_default">Заполнить по умолчанию</string>
+    <string name="btn_fix_errors">Сначала исправьте ошибки</string>
+    <string name="btn_hide_label">Скрыть</string>
+    <string name="btn_install">Установить</string>
+    <string name="btn_install_later">Позже</string>
+    <string name="btn_install_root">⚡ Root-установка</string>
+    <string name="btn_request_root">Запросить доступ</string>
+    <string name="btn_save_changes">Сохранить изменения</string>
+    <string name="btn_upload_file">Загрузить файл</string>
+    <string name="btn_upload_label">Загрузить</string>
+    <string name="btn_validate">Проверить модуль</string>
+
+    <!-- ===== Тосты ===== -->
+    <string name="toast_build_error">Ошибка сборки</string>
+    <string name="toast_file_manager_unavailable">Не удалось открыть файловый менеджер</string>
+    <string name="toast_file_not_found">Файл не найден</string>
+    <string name="toast_file_read_error">Ошибка чтения файла</string>
+    <string name="toast_folder_open_error">Не удалось открыть папку</string>
+    <string name="toast_imported">Модуль импортирован</string>
+    <string name="toast_install_error">Ошибка установки: %s</string>
+    <string name="toast_installing">Устанавливаю модуль…</string>
+    <string name="toast_load_error">Ошибка загрузки</string>
+    <string name="toast_module_installed">✓ Установлен через %s. Перезагрузите устройство.</string>
+    <string name="toast_module_prop_saved">module.prop сохранён</string>
+    <string name="toast_module_saved">Модуль сохранён</string>
+    <string name="toast_no_installer">Не найдено приложение для установки. Установите Magisk / KernelSU / APatch.</string>
+    <string name="toast_path_read_error">Не удалось прочитать путь</string>
+    <string name="toast_permission_manual">Ваше устройство не поддерживает запрос. Включите разрешение вручную в настройках приложения.</string>
+    <string name="toast_project_load_error">Ошибка загрузки проекта: %1$s</string>
+    <string name="toast_project_loaded">Проект загружен</string>
+    <string name="toast_project_opened">Проект открыт</string>
+    <string name="toast_project_save_error">Ошибка сохранения проекта: %1$s</string>
+    <string name="toast_project_saved">Проект сохранён</string>
+    <string name="toast_prop_save_error">Ошибка сохранения module.prop: %1$s</string>
+    <string name="toast_save_error">Ошибка сохранения</string>
+    <string name="toast_updatejson_saved">update.json сохранён в MagiskModuleCreator/</string>
+
+    <!-- ===== Метки и поля ===== -->
+    <string name="label_content">Содержимое</string>
+    <string name="label_custom">Пользовательский</string>
+    <string name="label_file_name">Имя файла *</string>
+    <string name="label_file_type">Тип файла</string>
+    <string name="label_min_magisk">minMagisk (напр. 20400 = Magisk 20.4+)</string>
+    <string name="label_name">Название *</string>
+    <string name="label_optional">Опционально</string>
+    <string name="label_permissions">Права</string>
+    <string name="label_replace">replace (директории для замены)</string>
+    <string name="label_required">Обязательный</string>
+    <string name="label_sepolicy">sepolicy.rule (правила SELinux)</string>
+    <string name="label_symlink_recommended">Symlink (рекомендуется)</string>
+
+    <!-- ===== Подсказки ===== -->
+    <string name="hint_add_files">Добавьте файлы, которые Magisk смонтирует поверх /system — например hosts, lib, prop</string>
+    <string name="hint_add_files_how">«Загрузить» — файлы с устройства, «Создать» — написать вручную</string>
+    <string name="hint_enable_root">Включите root в настройках и предоставьте доступ, чтобы управлять модулями.</string>
+    <string name="hint_replace">Каждый путь на новой строке, напр. /system/app/YouTube</string>
+    <string name="hint_sepolicy">Одно правило на строку</string>
+
+    <!-- ===== Права доступа ===== -->
+    <string name="permission_executable">Исполняемый</string>
+    <string name="permission_owner_only">Только владелец</string>
+    <string name="permission_read_write">Чтение/запись владельца</string>
+    <string name="permission_regular">Обычный файл</string>
+
+    <!-- ===== Типы файлов ===== -->
+    <string name="file_type_binary">Бинарный файл</string>
+    <string name="file_type_config">Конфигурация</string>
+    <string name="file_type_script">Скрипт (.sh)</string>
+    <string name="file_type_text">Текстовый файл</string>
+
+    <!-- ===== Заголовки секций ===== -->
+    <string name="section_overlay_files">Файлы оверлея</string>
+    <string name="section_scripts">Скрипты</string>
+    <string name="title_add_file">Добавить файл</string>
+    <string name="title_file_structure">Структура модуля</string>
+    <string name="title_module_prop">module.prop</string>
+    <string name="title_module_structure">Структура модуля</string>
+    <string name="title_options">Опции модуля</string>
+    <string name="title_summary">Сводка модуля</string>
+    <string name="title_update_binary">update-binary</string>
+    <string name="title_validation">Валидация модуля</string>
+
+    <!-- ===== Сводка модуля ===== -->
+    <string name="summary_files">Файлов</string>
+    <string name="summary_scripts">Скриптов</string>
+    <string name="summary_size">Размер</string>
+    <string name="summary_version">Версия</string>
+
+    <!-- ===== Root — возможности ===== -->
+    <string name="root_feature_browser">📁 Системный браузер (/system, /vendor, /proc)</string>
+    <string name="root_feature_conflicts">🔍 Автопроверка конфликтов перед установкой</string>
+    <string name="root_feature_direct_install">⚡ Прямая установка модулей без Intent</string>
+    <string name="root_feature_manager">📋 Менеджер установленных модулей</string>
+    <string name="root_feature_toggle">🔒 Enable / Disable / Remove модулей</string>
+
+    <!-- ===== Пустые состояния ===== -->
+    <string name="no_files_added">Нет файлов оверлея</string>
+    <string name="no_modules_installed">Нет установленных модулей</string>
+    <string name="no_root_access">Нет root-доступа</string>
+
+    <!-- ===== Прочее ===== -->
+    <string name="action_more">Ещё</string>
+    <string name="cd_back">Назад</string>
+    <string name="cd_refresh">Обновить</string>
+    <string name="cd_root_status">Root статус</string>
+    <string name="collapse_script">Свернуть</string>
+    <string name="collapse_section">Свернуть</string>
+    <string name="desc_skip_mount">Не монтировать файлы модуля поверх /system</string>
+    <string name="err_open_file">Не удалось открыть файл</string>
+    <string name="err_open_file_write">Не удалось открыть файл для записи</string>
+    <string name="expand_script">Развернуть</string>
+    <string name="expand_section">Развернуть</string>
+    <string name="export_progress_message">Пожалуйста, подождите</string>
+    <string name="export_progress_title">Сборка модуля…</string>
+    <string name="menu_about">О программе</string>
+    <string name="menu_open_folder">Открыть папку с модулями</string>
+    <string name="menu_open_project">Открыть проект</string>
+    <string name="menu_recent_projects">Недавние проекты</string>
+    <string name="option_skip_mount">Пропустить монтирование</string>
+    <string name="result_checks">Результат: %1$d/%2$d проверок</string>
+    <string name="screen_module_manager">Менеджер модулей</string>
+    <string name="snack_files_added">Добавлено %1$d файл(ов)</string>
+    <string name="using_symlink">Используется symlink на Magisk\'s update-binary.</string>
+    <string name="validating">Выполняется…</string>
+    <string name="about_author">от ExchNow (Lolokeksu)</string>
+    <string name="settings_about_content">Полноценная IDE для создания модулей Magisk, KernelSU и APatch прямо на телефоне. Без ПК.</string>
+
+</resources>

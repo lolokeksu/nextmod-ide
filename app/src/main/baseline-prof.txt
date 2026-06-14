@@ -1,0 +1,13 @@
+HSPLcom/magisk/next/MainActivity;->onCreate(Landroid/os/Bundle;)V
+HSPLcom/magisk/next/ui/MainScreenKt$MainScreen$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/MainScreenKt$MainScreen$2$2;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/tabs/MetadataTabKt$MetadataTab$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/tabs/FileBrowserTabKt$FileBrowserTab$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/tabs/FilesTabKt$FilesTab$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/tabs/ScriptsTabKt$ScriptsTab$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/tabs/PreviewTabKt$PreviewTab$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/ui/tabs/AdvancedTabKt$AdvancedTab$2$1;->invoke(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/magisk/next/viewmodel/ModuleViewModel;-><init>()V
+HSPLcom/magisk/next/viewmodel/ModuleData;-><init>()V
+HSPLcom/magisk/next/viewmodel/ModuleBuilder;->generateModuleProp()Ljava/lang/String;
+HSPLcom/magisk/next/AppSettings;-><init>(Landroid/content/Context;)V
