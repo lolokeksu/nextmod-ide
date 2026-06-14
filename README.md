@@ -1,5 +1,9 @@
 <div align="center">
 
+🌐 [English](README.md) | [Русский](README.ru.md)
+
+<img src="https://github.com/user-attachments/assets/761eddfd-49de-422e-99d0-d5a86664affd" width="120" alt="NextMod IDE"/>
+
 # NextMod IDE
 
 **A full-fledged IDE for building Magisk, KernelSU and APatch modules — right on your Android device. No PC needed.**
@@ -9,6 +13,14 @@
 [![Release](https://img.shields.io/github/v/release/lolokeksu/nextmod-ide)](https://github.com/lolokeksu/nextmod-ide/releases)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-channel-2CA5E0?logo=telegram&logoColor=white)](https://t.me/nextmod_ide)
 [![Telegram Chat](https://img.shields.io/badge/Telegram-chat-2CA5E0?logo=telegram&logoColor=white)](https://t.me/nextmod_ide_chat)
+
+![Android](https://img.shields.io/badge/Android-IDE-3DDC84?logo=android&logoColor=white)
+![Magisk](https://img.shields.io/badge/Magisk-supported-00B0FF)
+![KernelSU](https://img.shields.io/badge/KernelSU-supported-7C4DFF)
+![APatch](https://img.shields.io/badge/APatch-supported-FF6D00)
+![Kotlin](https://img.shields.io/badge/Kotlin-Compose-7F52FF?logo=kotlin&logoColor=white)
+![Shell](https://img.shields.io/badge/Shell-busybox%20ash%2Fmksh-4CAF50)
+![ScriptLinter](https://img.shields.io/badge/ScriptLinter-built--in-19E3D2)
 
 </div>
 
@@ -22,12 +34,9 @@ Built for people who write modules on the go, on a tablet, or simply without acc
 
 ## Screenshots
 
-<div align="center">
-
 | Metadata | Preview | Module Manager | Browser |
 |----------|---------|----------------|---------|
 | <img src="https://github.com/user-attachments/assets/c9ab2438-6b4a-4e4b-8093-4192329bdf7c" width="180"/> | <img src="https://github.com/user-attachments/assets/b26dcbb2-3b47-4b62-9a22-45e4f081fca4" width="180"/> | <img src="https://github.com/user-attachments/assets/a0146e72-83b9-49f5-b629-032a2ec6fe9a" width="180"/> | <img src="https://github.com/user-attachments/assets/fa524708-0b00-45ec-a501-f6c68a9609ba" width="180"/> |
-</div>
 
 ## Features
 
