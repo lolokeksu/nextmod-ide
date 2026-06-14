@@ -67,7 +67,7 @@ Any derivative works (forks) must remain open under the same license. The name "
 
 [GitHub](https://github.com/lolokeksu) 
 
-[Telegram](t.me/nextmod_ide)
+[Telegram](https://t.me/nextmod_ide)
 
 ---
 
