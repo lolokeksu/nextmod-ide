@@ -1,0 +1,50 @@
+name: 💡 Запрос функции / Feature Request
+description: Предложить новую возможность или улучшение / Suggest a new feature or improvement
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Спасибо за идею! / Thanks for the idea!
+        Опишите, что вы хотите добавить и зачем. / Describe what you'd like and why.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую проблему решает / Problem it solves
+      description: Что неудобно сейчас и какой сценарий это закрывает. / What's currently painful.
+      placeholder: Сейчас нет способа быстро…
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Предлагаемое решение / Proposed solution
+      description: Как, по-вашему, это должно работать. / How it should work.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Раздел / Area
+      options:
+        - Редактор кода / Code editor
+        - ScriptLinter / Шаблоны скриптов
+        - Сборка / упаковка модуля
+        - Управление проектами
+        - Интерфейс / UX
+        - Локализация
+        - Другое / Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Альтернативы / Alternatives
+      description: Какие обходные пути вы пробовали. / Workarounds you considered.
+    validations:
+      required: false
