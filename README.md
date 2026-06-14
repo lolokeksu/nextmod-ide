@@ -7,8 +7,8 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Platform](https://img.shields.io/badge/platform-Android%208.0%2B-brightgreen.svg)]()
 [![Release](https://img.shields.io/github/v/release/lolokeksu/nextmod-ide)](https://github.com/lolokeksu/nextmod-ide/releases)
-[![Telegram Channel](https://img.shields.io/badge/Telegram-канал-2CA5E0?logo=telegram&logoColor=white)](https://t.me/nextmod_ide)
-[![Telegram Chat](https://img.shields.io/badge/Telegram-чат-2CA5E0?logo=telegram&logoColor=white)](https://t.me/nextmod_ide_chat)
+[![Telegram Channel](https://img.shields.io/badge/Telegram-channel-2CA5E0?logo=telegram&logoColor=white)](https://t.me/nextmod_ide)
+[![Telegram Chat](https://img.shields.io/badge/Telegram-chat-2CA5E0?logo=telegram&logoColor=white)](https://t.me/nextmod_ide_chat)
 
 </div>
 
@@ -70,10 +70,10 @@ The project builds on Android (ACSIDE + Termux) or on a PC (Android Studio). Req
 
 | | |
 |---|---|
-| 📢 Telegram канал | [@nextmod_ide](https://t.me/nextmod_ide) — релизы и обновления |
-| 💬 Telegram чат | [@nextmod_ide_chat](https://t.me/nextmod_ide_chat) — вопросы и фидбек |
-| 🐛 Баг-репорты | [GitHub Issues](https://github.com/lolokeksu/nextmod-ide/issues) — используй шаблон |
-| 🇷🇺 4PDA | [Тема на форуме](https://4pda.to/forum/index.php?showtopic=1123014) — русскоязычное сообщество |
+| 📢 Telegram channel | [@nextmod_ide](https://t.me/nextmod_ide) — releases and updates |
+| 💬 Telegram chat | [@nextmod_ide_chat](https://t.me/nextmod_ide_chat) — questions and feedback |
+| 🐛 Bug reports | [GitHub Issues](https://github.com/lolokeksu/nextmod-ide/issues) — please use the template |
+| 🇷🇺 4PDA | [Forum thread](https://4pda.to/forum/index.php?showtopic=1123014) — Russian-speaking community |
 
 ## License
 
