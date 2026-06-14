@@ -1,0 +1,12 @@
+# Запрещает создание issue без шаблона — заставляет выбрать форму.
+blank_issues_enabled: false
+
+# Ссылки, которые показываются под списком шаблонов на странице выбора.
+contact_links:
+  - name: 💬 Обсуждение на 4PDA / Discussion on 4PDA
+    url: https://4pda.to/forum/index.php?showtopic=1123014
+    about: Вопросы по использованию, обсуждение и поддержка на русском. Questions and general support.
+
+  - name: ❓ Вопрос (не баг) / Question (not a bug)
+    url: https://github.com/lolokeksu/NextMod-IDE/discussions
+    about: Если это не баг и не запрос фичи — задайте вопрос в Discussions.
