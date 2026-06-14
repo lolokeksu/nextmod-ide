@@ -1,0 +1,64 @@
+name: 🔍 Ложное срабатывание ScriptLinter / ScriptLinter False Positive
+description: Линтер ругается на корректный код, или пропускает ошибку / Linter flags valid code, or misses an error
+title: "[LINTER] "
+labels: ["scriptlinter", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Сообщение о проблеме ScriptLinter
+        Используйте эту форму, если ScriptLinter ошибается: ругается на рабочий код
+        (ложное срабатывание) или пропускает реальную ошибку (ложный пропуск).
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Тип проблемы / Issue type
+      options:
+        - Ложное срабатывание — ругается на корректный код / False positive
+        - Ложный пропуск — не заметил реальную ошибку / False negative
+    validations:
+      required: true
+
+  - type: input
+    id: rule
+    attributes:
+      label: Какая проверка / Which check
+      description: Текст или код предупреждения линтера, если виден. / The warning text or rule shown.
+      placeholder: "напр. local вне функции / busybox: команда не поддерживается"
+    validations:
+      required: false
+
+  - type: textarea
+    id: snippet
+    attributes:
+      label: Фрагмент скрипта / Script snippet
+      description: Минимальный кусок кода, на котором воспроизводится. / Minimal reproducing snippet.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Почему линтер неправ / Why the linter is wrong
+      description: Почему код корректен (или почему это реальная ошибка). / Why the code is valid / really broken.
+    validations:
+      required: true
+
+  - type: input
+    id: shell_target
+    attributes:
+      label: Целевой интерпретатор / Target shell
+      description: Под что писался скрипт. / Which interpreter the script targets.
+      placeholder: "напр. busybox ash / mksh / sh"
+    validations:
+      required: false
+
+  - type: input
+    id: nxi_version
+    attributes:
+      label: Версия NXI / NXI version
+      placeholder: "напр. v1.0"
+    validations:
+      required: true
