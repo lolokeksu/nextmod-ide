@@ -28,6 +28,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.magisk.next.R
 import com.magisk.next.ui.theme.*
 import com.magisk.next.viewmodel.ModuleViewModel
+import com.magisk.next.viewmodel.ScriptLinter
 
 @Composable
 fun ScriptsTab(viewModel: ModuleViewModel) {
@@ -88,9 +89,13 @@ internal fun CollapsibleScriptCard(
     visualTransformation: VisualTransformation
 ) {
     var expanded by remember { mutableStateOf(false) }
-    // [*] scrollState вынесен из AnimatedVisibility — позиция прокрутки
-    //     сохраняется при сворачивании/разворачивании карточки
     val scrollState = rememberScrollState()
+    // [+] context поднят на уровень функции — нужен и для превью и для линтера
+    val context = LocalContext.current
+    // [+] Линтер: пересчитывается только при изменении скрипта (remember(script))
+    val lintIssues = remember(script) {
+        if (script.isBlank()) emptyList() else ScriptLinter.lint(context, script)
+    }
 
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -114,7 +119,6 @@ internal fun CollapsibleScriptCard(
                     Text(name, style = MaterialTheme.typography.labelLarge, color = TextPrimary)
                     // [+] Превью первой строки скрипта когда карточка свёрнута
                     if (!expanded) {
-                        val context = LocalContext.current
                         val preview = remember(script) { getScriptPreview(context, script) }
                         Text(
                             preview,
@@ -135,6 +139,23 @@ internal fun CollapsibleScriptCard(
                     contentDescription = if (expanded) stringResource(R.string.collapse_script) else stringResource(R.string.expand_script),
                     tint = TextSecondary
                 )
+                // [+] Бейдж с числом проблем линтера — виден даже когда карточка свёрнута
+                if (lintIssues.isNotEmpty()) {
+                    Spacer(modifier = Modifier.width(6.dp))
+                    val badgeColor = when {
+                        lintIssues.any { it.severity == ScriptLinter.Severity.CRITICAL } -> Color(0xFFEF4444)
+                        lintIssues.any { it.severity == ScriptLinter.Severity.DANGER }   -> Color(0xFFF59E0B)
+                        else -> Color(0xFF4D9FFF)
+                    }
+                    Surface(shape = CircleShape, color = badgeColor) {
+                        Text(
+                            "${lintIssues.size}",
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                            fontSize = 10.sp,
+                            color = Color.White
+                        )
+                    }
+                }
             }
 
             AnimatedVisibility(
@@ -203,6 +224,9 @@ Box(
     }
 }
 
+                    // [+] Панель линтера — под редактором, над сниппетами
+                    LinterPanel(issues = lintIssues)
+
                     if (snippetTarget != null && viewModel != null) {
                         Spacer(modifier = Modifier.height(8.dp))
                         val snippets = ModuleViewModel.SNIPPETS[snippetTarget] ?: emptyList()
@@ -265,6 +289,55 @@ private fun UpdateBinarySection(viewModel: ModuleViewModel) {
         }
     }
 }
+// [+] Панель результатов ScriptLinter под редактором скрипта
+@Composable
+private fun LinterPanel(issues: List<ScriptLinter.Issue>) {
+    Spacer(modifier = Modifier.height(8.dp))
+    if (issues.isEmpty()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color(0xFF10B981).copy(alpha = 0.08f), RoundedCornerShape(8.dp))
+                .padding(horizontal = 12.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Box(modifier = Modifier.size(8.dp).clip(CircleShape).background(Color(0xFF10B981)))
+            Text("Скрипт чист", fontSize = 12.sp, color = Color(0xFF10B981))
+        }
+        return
+    }
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        issues.forEach { issue ->
+            val (color, label) = when (issue.severity) {
+                ScriptLinter.Severity.CRITICAL -> Color(0xFFEF4444) to "CRITICAL"
+                ScriptLinter.Severity.DANGER   -> Color(0xFFF59E0B) to "DANGER"
+                ScriptLinter.Severity.STYLE    -> Color(0xFF4D9FFF) to "STYLE"
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color.copy(alpha = 0.08f), RoundedCornerShape(8.dp))
+                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Box(modifier = Modifier.size(8.dp).clip(CircleShape).background(color))
+                Text(
+                    "Строка ${issue.line} [$label]: ${issue.message}",
+                    fontSize = 11.sp,
+                    color = color,
+                    fontFamily = FontFamily.Monospace,
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
+    }
+}
+
 // [+] Возвращает превью скрипта для свёрнутой карточки:
 //     пустой → "Не добавлен", иначе → первая непустая строка без комментариев
 private fun getScriptPreview(context: android.content.Context, script: String): String {
